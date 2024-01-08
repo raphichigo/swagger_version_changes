@@ -31,8 +31,6 @@ def compare(old_version: dict, new_version: dict):
             components_changes_dict[f"#/components/schemas/{old_schema}"] = (
                 f"schema deleted! -> #/components/schemas/{old_schema}\n")
 
-
-
     for old_api, old_api_detail in old_version["paths"].items():
         if new_version["paths"].get(old_api):
             old_api_sorted_detail = json.dumps(old_api_detail, sort_keys=True)
@@ -50,7 +48,6 @@ def compare(old_version: dict, new_version: dict):
         for new_path in new_paths:
             changes.append(f"NEW PATH ADDED! {new_path}\n")
     return changes
-
 
 
 old_version = load_yaml_file("./new_and_old_swagger_files/old.yaml")
